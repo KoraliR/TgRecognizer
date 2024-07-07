@@ -23,7 +23,7 @@ def audio_to_text(audio_path):
 
 
 def mp4_to_wav(mp4_path, name, PATH):
-    path_to_wav = PATH + fr"\{name}.wav"
+    path_to_wav = PATH + fr"/{name}.wav"
     Video = VideoFileClip(mp4_path)
     Video.audio.write_audiofile(path_to_wav, codec='pcm_s16le')
     return path_to_wav
@@ -31,7 +31,7 @@ def mp4_to_wav(mp4_path, name, PATH):
 
 def ogg_to_wav(ogg_path, name, PATH):
     Audio_ogg = AudioFileClip(ogg_path)
-    Audio_wav = PATH + fr"\{name}.wav"
+    Audio_wav = PATH + fr"/{name}.wav"
     Audio_ogg.write_audiofile(Audio_wav)
     return Audio_wav
 
@@ -39,5 +39,5 @@ def ogg_to_wav(ogg_path, name, PATH):
 def my_logger(user_id, name_of_file, user_name, text):
     way_to_home = os.getcwd()
     log_string = f"\n{user_id}    {user_name}     {name_of_file}      {datetime.now()}\n Текст: {text} \n"
-    with open(way_to_home + "\\log_bot.txt", "a") as file:
+    with open(way_to_home + "/log_bot.txt", "a") as file:
         file.write(log_string)
