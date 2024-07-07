@@ -6,8 +6,8 @@ from Worker import ogg_to_wav, mp4_to_wav, my_logger
 
 from Worker import audio_to_text
 
-PATH_VN = os.getcwd() + r"\For_vn"
-PATH_VOICE = os.getcwd() + r"\Voice"
+PATH_VN = os.getcwd() + r"/For_vn"
+PATH_VOICE = os.getcwd() + r"/Voice"
 bot_token = "1925608406:AAE5vcn0bexT9YKZoTMWuzReTORbSLxUjpo"
 
 
@@ -28,9 +28,9 @@ def voice(message_voice):
     try:
         file_voice = bot.get_file(voice_id)
         downloaded_voice = bot.download_file(file_voice.file_path)
-        with open(PATH_VOICE + "\\" + f"{str(voice_id)}" + ".ogg", "wb") as new_file:
+        with open(PATH_VOICE + "/" + f"{str(voice_id)}" + ".ogg", "wb") as new_file:
             new_file.write(downloaded_voice)
-        path_to_wav = ogg_to_wav(PATH_VOICE + "\\" + f"{str(voice_id)}" + ".ogg", voice_id, PATH_VOICE)
+        path_to_wav = ogg_to_wav(PATH_VOICE + "/" + f"{str(voice_id)}" + ".ogg", voice_id, PATH_VOICE)
         bot.reply_to(message_voice, "Перевожу в текст...")
         text = audio_to_text(path_to_wav)
         my_logger(message_voice.from_user.id, voice_id, message_voice.from_user.username, text)
@@ -49,9 +49,9 @@ def video_note(message_vn):
     try:
         file_vn = bot.get_file(video_note_id)
         downloaded_vn = bot.download_file(file_vn.file_path)
-        with open(PATH_VN + "\\" + f"{str(video_note_id)}" + ".mp4", 'wb') as new_file:
+        with open(PATH_VN + "/" + f"{str(video_note_id)}" + ".mp4", 'wb') as new_file:
             new_file.write(downloaded_vn)
-        path_to_wav = mp4_to_wav(PATH_VN + "\\" + f"{str(video_note_id)}" + ".mp4", video_note_id, PATH_VOICE)
+        path_to_wav = mp4_to_wav(PATH_VN + "/" + f"{str(video_note_id)}" + ".mp4", video_note_id, PATH_VOICE)
         bot.reply_to(message_vn, "Перевожу в текст...")
         text = audio_to_text(path_to_wav)
         my_logger(message_vn.from_user.id, video_note_id, message_vn.from_user.username, text)
