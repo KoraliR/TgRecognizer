@@ -6,8 +6,9 @@ from Worker import ogg_to_wav, mp4_to_wav, my_logger
 
 from Worker import audio_to_text
 
-PATH_VN = os.getcwd() + r"/For_vn"
-PATH_VOICE = os.getcwd() + r"/Voice"
+PATH_VN = "/home/korali/Bot_recognizer/For_vn"
+PATH_VOICE = "/home/korali/Bot_recognizer/Voice"
+
 bot_token = "1925608406:AAE5vcn0bexT9YKZoTMWuzReTORbSLxUjpo"
 
 
