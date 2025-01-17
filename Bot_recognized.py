@@ -9,7 +9,7 @@ from Worker import audio_to_text
 PATH_VN = "/home/korali/Bot_recognizer/For_vn"
 PATH_VOICE = "/home/korali/Bot_recognizer/Voice"
 
-bot_token = "1925608406:AAE5vcn0bexT9YKZoTMWuzReTORbSLxUjpo"
+bot_token = ""
 
 
 
